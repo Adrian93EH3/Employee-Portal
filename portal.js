@@ -42,7 +42,7 @@ const portalPrompt = () => {
                 "View All Roles",
                 "Add A New Role",
                 "Promote/Demote Employee",
-                "View Managers"
+                "View All Managers"
             ],
         }
     ]).then(answers => {
@@ -66,7 +66,7 @@ const portalPrompt = () => {
                 connection.end(); // ALLOWS ME TO NOT HAVE TO CTRL+C EVERYTIME TO BE ABLE TO DO SOMETHING ELSE WITH THE TABLES
                 break;
             
-            case "View Managers":
+            case "View All Managers":
                     managers();
                     connection.end(); // ALLOWS ME TO NOT HAVE TO CTRL+C EVERYTIME TO BE ABLE TO DO SOMETHING ELSE WITH THE TABLES
                     break;
