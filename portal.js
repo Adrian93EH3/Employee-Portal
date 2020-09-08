@@ -41,7 +41,8 @@ const portalPrompt = () => {
                 "Add A New Department",
                 "View All Roles",
                 "Add A New Role",
-                "Promote/Demote Employee"
+                "Promote/Demote Employee",
+                "View Managers"
             ],
         }
     ]).then(answers => {
@@ -64,6 +65,11 @@ const portalPrompt = () => {
                 roles();
                 connection.end(); // ALLOWS ME TO NOT HAVE TO CTRL+C EVERYTIME TO BE ABLE TO DO SOMETHING ELSE WITH THE TABLES
                 break;
+            
+            case "View Managers":
+                    managers();
+                    connection.end(); // ALLOWS ME TO NOT HAVE TO CTRL+C EVERYTIME TO BE ABLE TO DO SOMETHING ELSE WITH THE TABLES
+                    break;
         }
 
     })
@@ -103,4 +109,21 @@ function roles() {
         }
         console.table(res);
     });
+}
+
+
+
+
+
+// BONUS
+// ============
+function managers() {
+        // NPM MYSQL DOCUMENTATION UNDER "POOLING CONNECTIONS" SHOWED ME THE FOLLOWING LINE
+        connection.query("SELECT * FROM managers", (err, res) => {
+            // =========================================================
+            if (err) {
+                throw err;
+            }
+            console.table(res);
+        });
 }
